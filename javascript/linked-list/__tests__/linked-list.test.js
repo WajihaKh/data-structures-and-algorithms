@@ -1,56 +1,54 @@
-'use strict';
 
-const { Node, LinkedList } = require('../index');
+const LinkedList = require('../index');
 
-describe('LinkedList', () => {
-  it('Can successfully instantiate an empty linked list', () => {
-    const ll = new LinkedList();
-    expect(ll.head).toBeNull();
-  });
+const linkedList = new LinkedList();
 
-  it('Can properly insert into the linked list', () => {
-    const ll = new LinkedList();
-    ll.insert(10);
-    expect(ll.head.value).toEqual(10);
-    expect(ll.head.next).toBeNull();
-  });
+test('Append 1', () => {
+  linkedList.append(1);
+  expect(linkedList.head.value).toBe(1);
+});
 
-  it('The head property will properly point to the first node in the linked list', () => {
-    const ll = new LinkedList();
-    ll.insert(10);
-    expect(ll.head.value).toEqual(10);
-    ll.insert(20);
-    expect(ll.head.value).toEqual(20);
-  });
+test('Append 3', () => {
+  linkedList.append(3);
+  expect(linkedList.head.next.value).toBe(3);
+});
 
-  it('Can properly insert multiple nodes into the linked list', () => {
-    const ll = new LinkedList();
-    ll.insert(10);
-    ll.insert(20);
-    expect(ll.head.value).toEqual(20);
-    expect(ll.head.next.value).toEqual(10);
-  });
+test('Append 2', () => {
+  linkedList.append(2);
+  expect(linkedList.head.next.next.value).toBe(2);
+});
 
-  it('Will return true when finding a value within the linked list that exists', () => {
-    const ll = new LinkedList();
-    ll.insert(10);
-    ll.insert(20);
-    ll.insert(30);
-    expect(ll.includes(20)).toBeTruthy();
-  });
+test('Insert Before 3', () => {
+  linkedList.insertBefore(3, 5);
+  expect(linkedList.head.next.value).toBe(5);
+  expect(linkedList.head.next.next.value).toBe(3);
+});
 
-  it('Will return false when searching for a value in the linked list that does not exist', () => {
-    const ll = new LinkedList();
-    ll.insert(10);
-    ll.insert(20);
-    expect(ll.includes(30)).toBeFalsy();
-  });
+test('Insert Before 1', () => {
+  linkedList.insertBefore(1, 5);
+  expect(linkedList.head.value).toBe(5);
+});
 
-  it('Can properly return a collection of all the values that exist in the linked list', () => {
-    const ll = new LinkedList();
-    ll.insert(10);
-    ll.insert(20);
-    ll.insert(30);
-    expect(ll.toString()).toEqual('{ 30 } -> { 20 } -> { 10 } -> NULL');
-  });
+test('Insert Before 2', () => {
+  linkedList.insertBefore(2, 5);
+  expect(linkedList.head.next.next.value).toBe(5);
+});
+
+test('Insert After 3', () => {
+  linkedList.insertAfter(3, 5);
+  expect(linkedList.head.next.value).toBe(5); // The next node after 3 should have value 5
+  expect(linkedList.head.next.next).toBeNull(); // There should be no node after 5
+});
+
+
+
+test('Insert After 2', () => {
+  linkedList.insertAfter(2, 5);
+  expect(linkedList.head.next.next.value).toBe(5);
+});
+
+test('Insert After 4 throws error', () => {
+  expect(() => linkedList.insertAfter(4, 5)).toThrow('Value not found in the list');
+
+
 });

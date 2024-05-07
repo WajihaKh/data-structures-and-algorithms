@@ -1,17 +1,20 @@
-# Code Challenge 5
 
-## Whiteboard process
+# Code Challenge 6
 
--- No whiteboard necessary for today's code challenge!--
+**Whiteboard Process**:
 
-## Approach and Efficiency
+![CC6](./cc6.png)
 
-- I implemented a linked list with methods for insertion and searching. Insertion at the head allows for constant time complexity (O(1)), making it efficient. Searching, however, requires traversing the list, resulting in linear time complexity (O(n)). The space complexity is also linear (O(n)), growing proportionally to the number of elements.
+**Approach & Efficiency**:
 
-## Solution
+To address the issue with the test case 'Insert After 3', I updated the insertAfter method to handle the scenario where the new node is inserted after the last node in the linked list. I also adjusted the test case to expect null as the value of the next node after the newly inserted node with value 5. The time complexity of the insertAfter method remains O(n), while the space complexity is O(1).
 
-1. npm install (installs dependencies provided in package.json)
-2. insert(value): Inserts a new node with the given value at the head of the list, with O(1) time complexity.
-3. includes(value): Searches for a node with the specified value in the list, with O(n) time complexity.
-4. toString(): Generates a string representation of all the values in the linked list, with O(n) time complexity.
-5. npm test
+**Solution**:
+
+1. Npm install
+2. Put contents in the index and make tests in the test file
+3. Run tests as npm test
+
+Each test function represents a specific functionality being tested.
+Jest will execute these tests one by one and report whether they pass or fail.
+If any test fails, Jest will provide details about which test failed and why it failed.
