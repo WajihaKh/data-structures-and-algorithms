@@ -1,3 +1,4 @@
+
 # Code Challenge 6
 
 **Whiteboard Process**:

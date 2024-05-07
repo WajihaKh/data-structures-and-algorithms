@@ -1,14 +1,3 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
 
   append(value) {
     const newNode = new Node(value);
@@ -64,8 +53,19 @@ class LinkedList {
       current = current.next;
     }
     throw new Error('Value not found in the list');
+
   }
 
+  toString() {
+    let result = '';
+    let current = this.head;
+    while (current) {
+      result += `{ ${current.value} } -> `;
+      current = current.next;
+    }
+    result += 'NULL';
+    return result;
+  }
 }
 
-module.exports = LinkedList;
+module.exports = { Node, LinkedList };

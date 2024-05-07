@@ -1,3 +1,4 @@
+
 const LinkedList = require('../index');
 
 const linkedList = new LinkedList();
@@ -48,4 +49,6 @@ test('Insert After 2', () => {
 
 test('Insert After 4 throws error', () => {
   expect(() => linkedList.insertAfter(4, 5)).toThrow('Value not found in the list');
+
+
 });
