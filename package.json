@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "get-challenge": "`which bash` ./code-challenges/bin/get-challenge.sh",
+
+
     "test": "jest --coverage",
+
     "lint": "eslint '**/*.js'"
   },
   "author": "",
